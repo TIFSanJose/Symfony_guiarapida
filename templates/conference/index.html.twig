@@ -17,4 +17,13 @@
         <li>Your template at <code><a href="{{ '/var/www/templates/conference/index.html.twig'|file_link(0) }}">templates/conference/index.html.twig</a></code></li>
     </ul>
 </div>
+
+    {% for conference in conferences %}
+        <h4>{{ conference }}</h4>
+        <p>
+            {# <a href="/conference/{{ conference.id }}">View</a> #}
+            {# La función path() genera la ruta a una página utilizando su nombre de ruta.  #}
+        <a href="{{ path('conference', { id: conference.id }) }}">View</a>
+        </p>
+    {% endfor %}
 {% endblock %}

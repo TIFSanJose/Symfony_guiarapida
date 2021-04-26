@@ -40,3 +40,10 @@ symfony composer req "orm:^2"
 
 #EasyAdmin genera automáticamente un área de administración para tu aplicación basada en controladores específicos
 symfony composer req "admin:^3"
+
+#Instalando Twig
+symfony composer req twig
+
+#
+symfony composer req "twig/intl-extra:^3"
+
