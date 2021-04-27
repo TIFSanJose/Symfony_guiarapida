@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Comment;
+use DateTime;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
@@ -59,8 +60,10 @@ class CommentCrudController extends AbstractCrudController
         
         if (Crud::PAGE_EDIT === $pageName) {
             yield $createdAt->setFormTypeOption('disabled', true);
+            dump($this->Datetime);
         } else {
             yield $createdAt;
+            dump(new DateTime());
         }
     }
 }
