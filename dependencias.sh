@@ -47,3 +47,11 @@ symfony composer req twig
 #
 symfony composer req "twig/intl-extra:^3"
 
+#Debido a que utilizamos un validador para garantizar la unicidad de los slugs, necesitamos agregar el 
+#componente Symfony Validator:
+symfony composer req validator
+
+#componente de Symfony String, que facilita la manipulación de las cadenas y proporciona un slugger:
+symfony composer req string
+
+

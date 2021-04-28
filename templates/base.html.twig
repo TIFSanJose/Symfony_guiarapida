@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
+        and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
             {#{{ encore_entry_link_tags('app') }}#}
         {% endblock %}
@@ -14,6 +14,19 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <header>
+            {# <h1><a href="{{ path('homepage') }}">Guestbook</a></h1> #}
+            <h1>Guestbook</h1>
+            <ul>
+            {% for conference in conferences %}
+                {# <li><a href="{{ path('conference', { id: conference.id }) }}">{{ conference }}</a></li> #}
+                <li><a href="{{ path('conference', { slug: conference.slug }) }}">{{ conference }}</a></li>
+            {% endfor %}
+            </ul>
+            <hr />
+        </header>
+        {% block body %}
+        
+        {% endblock %}
     </body>
 </html>

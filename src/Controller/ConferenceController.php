@@ -24,6 +24,7 @@ class ConferenceController extends AbstractController
     /**
      * @Route("/hello/{name}", name="homepage")
      */
+    
     // public function index(): Response
     // public function index(Request $request): Response
     // public function index(string $name = ''): Response
@@ -55,7 +56,8 @@ class ConferenceController extends AbstractController
 
     }
 
-    #[Route('/conference/{id}', name: 'conference')]
+    // #[Route('/conference/{id}', name: 'conference')]
+    #[Route('/conference/{slug}', name: 'conference')]
     // public function show(Environment $twig, Conference $conference, CommentRepository $commentRepository): Response
     // public function show(Request $request, Environment $twig, Conference $conference, CommentRepository $commentRepository): Response
     public function show(Request $request, Conference $conference, CommentRepository $commentRepository): Response
