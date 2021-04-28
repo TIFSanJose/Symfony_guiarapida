@@ -54,4 +54,7 @@ symfony composer req validator
 #componente de Symfony String, que facilita la manipulación de las cadenas y proporciona un slugger:
 symfony composer req string
 
+#La restricción de la imagen funciona comprobando el tipo mime; se requiere el componente Mime para que funcione:
+symfony composer req mime
+
 
