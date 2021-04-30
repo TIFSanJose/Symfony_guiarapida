@@ -60,6 +60,40 @@ symfony composer req mime
 #Para hacer llamadas a la API, utiliza el componente HttpClient de Symfony:
 symfony composer req http-client
 
+#Symfony se basa en PHPUnit para las pruebas unitarias (unit tests). Vamos a instalarlo:
+symfony composer req phpunit --dev
 
+#output
+#[UnexpectedValueException]                                 
+#  "phpunit" is not a valid alias. Did you mean this:         
+#    "symfony/phpunit-bridge", supported aliases: "phpunit-b  
+#  ridge", "phpunitbridge"  
 
+#https://symfony.com/doc/current/testing.html
+symfony composer require --dev phpunit/phpunit symfony/test-pack
 
+symfony composer require symfony/panther --dev
+
+#instala el bundle Doctrine Fixtures:
+symfony composer req orm-fixtures --dev
+
+#output
+#[UnexpectedValueException]            
+# "orm-fixtures" is not a valid alias.
+
+#https://packagist.org/packages/doctrine/data-fixtures
+doctrine/coding-standard
+
+symfony composer req --dev doctrine/dbal:^2.5.4
+
+symfony composer req --dev doctrine/common
+
+symfony composer req --dev doctrine/persistence
+
+symfony composer req --dev doctrine/data-fixtures
+
+#Para restablecer la base de datos entre pruebas, instala DoctrineTestBundle:
+symfony composer req "dama/doctrine-test-bundle:^6" --dev
+
+#puedes usar un navegador real y la capa HTTP real gracias a Symfony Panther:
+symfony composer req panther --dev

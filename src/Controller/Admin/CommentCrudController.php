@@ -67,10 +67,8 @@ class CommentCrudController extends AbstractCrudController
         
         if (Crud::PAGE_EDIT === $pageName) {
             yield $createdAt->setFormTypeOption('disabled', true);
-            dump($this->Datetime);
         } else {
             yield $createdAt;
-            dump(new DateTime());
         }
     }
 }

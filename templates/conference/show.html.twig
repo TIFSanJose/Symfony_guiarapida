@@ -12,7 +12,8 @@
         {% for comment in comments %}
             {% if comment.photofilename %}
                 <img src="{{ asset('uploads/photos/' ~ comment.photofilename) }}" />
-            {% endif %}
+                <p>{{ dump( asset('uploads/photos/'~ comment.photofilename)) }}</p>
+            {% endif %} 
 
             <h4>{{ comment.author }}</h4>
             <small>

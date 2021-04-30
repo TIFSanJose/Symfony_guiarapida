@@ -26,8 +26,8 @@ final class Version20210421141021 extends AbstractMigration
         $this->addSql('CREATE INDEX IDX_9474526C604B8382 ON comment (conference_id)');
         $this->addSql('CREATE TABLE conference (id INT NOT NULL, city VARCHAR(255) NOT NULL, year VARCHAR(4) NOT NULL, is_international BOOLEAN NOT NULL, PRIMARY KEY(id))');
         $this->addSql('ALTER TABLE comment ADD CONSTRAINT FK_9474526C604B8382 FOREIGN KEY (conference_id) REFERENCES conference (id) NOT DEFERRABLE INITIALLY IMMEDIATE');
-        $this->addSql('DROP TABLE persona');
-        $this->addSql('DROP TABLE weahter');
+        // $this->addSql('DROP TABLE persona');
+        // $this->addSql('DROP TABLE weahter');
     }
 
     public function down(Schema $schema) : void
@@ -39,7 +39,7 @@ final class Version20210421141021 extends AbstractMigration
         $this->addSql('DROP SEQUENCE conference_id_seq CASCADE');
         $this->addSql('CREATE TABLE persona (nombre VARCHAR(80) DEFAULT NULL)');
         $this->addSql('CREATE TABLE weahter (city VARCHAR(80) DEFAULT NULL, temp_lo INT DEFAULT NULL, temp_hi INT DEFAULT NULL, prpc INT DEFAULT NULL, date DATE DEFAULT NULL)');
-        $this->addSql('DROP TABLE comment');
-        $this->addSql('DROP TABLE conference');
+        // $this->addSql('DROP TABLE comment');
+        // $this->addSql('DROP TABLE conference');
     }
 }
