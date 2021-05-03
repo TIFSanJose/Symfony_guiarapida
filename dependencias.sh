@@ -101,3 +101,5 @@ symfony composer req panther --dev
 #El componente Messenger es el encargado de la gestión de código asíncrono cuando usamos Symfony
 symfony composer req messenger
 
+#componente Workflow de Symfony
+symfony composer req workflow
