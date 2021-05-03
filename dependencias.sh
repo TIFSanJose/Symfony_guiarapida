@@ -97,3 +97,7 @@ symfony composer req "dama/doctrine-test-bundle:^6" --dev
 
 #puedes usar un navegador real y la capa HTTP real gracias a Symfony Panther:
 symfony composer req panther --dev
+
+#El componente Messenger es el encargado de la gestión de código asíncrono cuando usamos Symfony
+symfony composer req messenger
+

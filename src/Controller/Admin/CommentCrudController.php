@@ -14,8 +14,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Filter\EntityFilter;
-
-
+use Symfony\Component\Validator\Constraints\Date;
 
 class CommentCrudController extends AbstractCrudController
 {
@@ -58,6 +57,8 @@ class CommentCrudController extends AbstractCrudController
 
             ->onlyOnIndex()
         ;
+        yield TextField::new('state');
+
 
         $createdAt = DateTimeField::new('createdAt')->setFormTypeOptions([
             'html5' => true,
@@ -67,6 +68,7 @@ class CommentCrudController extends AbstractCrudController
         
         if (Crud::PAGE_EDIT === $pageName) {
             yield $createdAt->setFormTypeOption('disabled', true);
+            dump(new DateTime());
         } else {
             yield $createdAt;
         }
