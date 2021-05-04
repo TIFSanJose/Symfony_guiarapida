@@ -139,6 +139,9 @@
     "laminas/laminas-zendframework-bridge": {
         "version": "1.2.0"
     },
+    "lorenzo/pinky": {
+        "version": "1.0.5"
+    },
     "monolog/monolog": {
         "version": "2.2.0"
     },
@@ -685,7 +688,16 @@
     "theseer/tokenizer": {
         "version": "1.2.0"
     },
+    "tijsverkoyen/css-to-inline-styles": {
+        "version": "2.2.3"
+    },
+    "twig/cssinliner-extra": {
+        "version": "v3.3.0"
+    },
     "twig/extra-bundle": {
+        "version": "v3.3.0"
+    },
+    "twig/inky-extra": {
         "version": "v3.3.0"
     },
     "twig/intl-extra": {

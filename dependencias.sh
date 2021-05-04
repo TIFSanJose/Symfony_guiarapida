@@ -106,3 +106,6 @@ symfony composer req workflow
 
 #componente Symfony Mailer
 symfony composer req mailer
+
+#extensiones opcionales de Twig
+symfony composer req "twig/cssinliner-extra:^3" "twig/inky-extra:^3"
