@@ -103,3 +103,6 @@ symfony composer req messenger
 
 #componente Workflow de Symfony
 symfony composer req workflow
+
+#componente Symfony Mailer
+symfony composer req mailer
