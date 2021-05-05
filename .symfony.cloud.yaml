@@ -9,7 +9,7 @@ runtime:
         - sodium
         - ctype
         - iconv
-        
+        - xsl
 
 #variables:
 #    php:
