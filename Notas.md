@@ -5,9 +5,9 @@ ___
 _Descripcion **Problema**:_ En paso 7.6 plantea la conexion desde el servidor web (php) al servidor bd (postgres), usando el comando symfony
     
     php.Cliente ----> pg.ServerDB
-<pre>
-    symfony run psql 
-</pre>
+    <pre>
+        symfony run psql 
+    </pre>
 
 no me funciono
 
@@ -19,7 +19,6 @@ _Descripcion **Solucion**:_
 
         symfony run psql -h 172.28.0.2 -p 5432 -U root -d symfony
     </pre>
-
 ##### < Conexion a Servidor Postgres
 
 ##### > Migracion de BD
@@ -67,7 +66,6 @@ _Descripcion **Solucion**:_ error consiste en que la variable de entorno **DATAB
 <pre>
     bash-5.1# export DATABASE_URL="postgresql://root:admin@172.20.0.2:5432/symfony?serverVersion=13&charset=utf8"
 </pre>
-
 ##### < Migracion de BD
 
 ##### > Error en conexion Doctrine
@@ -121,5 +119,20 @@ La variable de entorno _**DATABASE_URL**_ no se pasa porque genera conflicto, de
             - PGPASSWORD=${DB_PASSWORD}
     ... #
 </pre>
-
 ##### < Error en conexion Doctrine
+
+##### > Error al levantar el entorno 
+_Descripcion **Problema**:_ Luego de intentar levantar el entorno de desarrollo lanza el siguiente error:
+    <pre>
+        docker-compose up
+
+        Starting docker_symfony-db ... error
+
+        ERROR: for docker_symfony-db  Cannot start service      db_postgres: failed to create endpoint  docker_symfony-db     on network docker_default:     failed to add the host   (vethf4ec776) <=> sandbox  (veth2efff87) pair interfaces:  operation not supported
+
+        ERROR: for db_postgres  Cannot start service    db_postgres:   failed to create endpoint   docker_symfony-db on network    docker_default: failed    to add the host (vethf4ec776) <=>   sandbox    (veth2efff87) pair interfaces: operation not  supported
+        ERROR: Encountered errors while bringing up the     project.
+    </pre>
+
+_Descripcion **Solucion**:_ De la investigacion, surgio que el problme puede haber surgido luego de actualizar la pc y no reiniciar. Se reinicia y levanto el entorno correctamente. 
+##### < Error al levantar el entorno 

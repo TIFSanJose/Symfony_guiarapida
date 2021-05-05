@@ -150,7 +150,7 @@ class Comment
         return $this;
     }
 
-    public function getStates(): ?string
+    public function getState(): ?string
     {
         return $this->state;
     }

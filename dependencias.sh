@@ -1,5 +1,5 @@
 #Dependencias de symfony
-/bin/bash!
+#!/bin/bash
 
 ##############################################################################
 #    Componentes Symfony: Paquetes que implementan las características       #
