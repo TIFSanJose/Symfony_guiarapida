@@ -64,10 +64,13 @@ class ConferenceController extends AbstractController
         //         );
 
         // return new Response($twig->render('conference/index.html.twig', [
-            return new Response($this->twig->render('conference/index.html.twig', [ 
-            'conferences' => $conferenceRepository->findAll(),
-                ]));
+        // return new Response($this->twig->render('conference/index.html.twig', [ 
+        $response = new Response($this->twig->render('conference/index.html.twig', [
+        'conferences' => $conferenceRepository->findAll(),
+            ]));
+        $response->setSharedMaxAge(3600);
 
+        return $response;
     }
 
     // #[Route('/conference/{id}', name: 'conference')]

@@ -109,3 +109,10 @@ symfony composer req mailer
 
 #extensiones opcionales de Twig
 symfony composer req "twig/cssinliner-extra:^3" "twig/inky-extra:^3"
+
+#El componente Process de Symfony te permite ejecutar un comando y recuperar el resultado 
+#(salida estándar y de error); instálalo:
+symfony composer req process
+
+#cache de symfony
+symfony composer req cache
