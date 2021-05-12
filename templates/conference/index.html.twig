@@ -9,7 +9,7 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    {# <h1>Hello {{ controller_name }}! ✅</h1> #}
 
     This friendly message is coming from:
     <ul>
@@ -24,7 +24,7 @@
             {# <a href="/conference/{{ conference.id }}">View</a> #}
             {# La función path() genera la ruta a una página utilizando su nombre de ruta.  #}
         {# <a href="{{ path('conference', { id: conference.id }) }}">View</a> #}
-            <a href="{{ path('conference', { slug: conference.slug }) }}">View</a>
+            {# <a href="{{ path('conference', { slug: conference.slug }) }}">View</a> #}
         </p>
     {% endfor %}
 {% endblock %}

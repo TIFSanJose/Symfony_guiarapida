@@ -17,12 +17,16 @@
         <header>
             {# <h1><a href="{{ path('homepage') }}">Guestbook</a></h1> #}
             <h1>Guestbook</h1>
-            <ul>
+            {# <ul>
             {% for conference in conferences %}
-                {# <li><a href="{{ path('conference', { id: conference.id }) }}">{{ conference }}</a></li> #}
+                {# <li><a href="{{ path('conference', { id: conference.id }) }}">{{ conference }}</a></li> 
                 <li><a href="{{ path('conference', { slug: conference.slug }) }}">{{ conference }}</a></li>
             {% endfor %}
-            </ul>
+            </ul> 
+            #}
+
+            {# {{ render(path('conference_header')) }} #}
+            {{ render_esi(path('conference_header')) }}
             <hr />
         </header>
         {% block body %}

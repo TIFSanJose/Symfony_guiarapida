@@ -35,10 +35,14 @@ class ConferenceController extends AbstractController
         $this->bus = $bus;
     }
     
+    // /**
+    //  * @Route("/hello/{name}", name="homepage")
+    //  */
+
     /**
-     * @Route("/hello/{name}", name="homepage")
+     * @Route("/", name="homepage")
      */
-    
+
     // public function index(): Response
     // public function index(Request $request): Response
     // public function index(string $name = ''): Response
@@ -72,6 +76,23 @@ class ConferenceController extends AbstractController
 
         return $response;
     }
+
+    /**
+     * @Route("/conference_header", name="conference_header")
+     */
+
+    // #[Route('/conference_header', name: 'conference_header')]
+    public function conferenceHeader(ConferenceRepository $conferenceRepository): Response
+    {
+        // return new Response($this->twig->render('conference/header.html.twig', [
+            $response = new Response($this->twig->render('conference/header.html.twig', [
+            'conferences' => $conferenceRepository->findAll(),
+        ]));
+        $response->setSharedMaxAge(3600);
+
+        return $response;
+    }
+
 
     // #[Route('/conference/{id}', name: 'conference')]
     #[Route('/conference/{slug}', name: 'conference')]
