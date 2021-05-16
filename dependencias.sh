@@ -116,3 +116,8 @@ symfony composer req process
 
 #cache de symfony
 symfony composer req cache
+
+#Webpack Encore 
+#Instalar yarn por separado al servidor "apk add yarn"
+symfony composer req encore
+
