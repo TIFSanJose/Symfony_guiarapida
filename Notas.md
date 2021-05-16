@@ -138,8 +138,22 @@ _Descripcion **Solucion**:_ De la investigacion, surgio que el problme puede hab
 ##### < Error al levantar el entorno 
 
 ##### > Borrado de var/cache/dev
-_Descripcion **Problema**: En paso21 se purgo la el directorio cache, eliminado al directorio dev.
+_Descripcion **Problema**:_ En paso21 se purgo la el directorio cache, eliminado al directorio dev.
 Esto trajo un error al renderizar los archivos *.html.twig, en particualar la funcion path.
 
-__Descripcion **Solucion**:_ Se elimino el directorio */cache* haciendo que al levantar el servidor se creara un nuevo directorio /cache/dev y asi solucionando el problema
+_Descripcion **Solucion**:_ Se elimino el directorio */cache* haciendo que al levantar el servidor se creara un nuevo directorio /cache/dev y asi solucionando el problema
 ##### < Borrado de var/cache/dev 
+
+##### > command "yarn encore dev" failed: exit status 1 "@popperjs/core"
+_Descripcion **Problema**:_ Al ejecutar el compilador de css _symfony run yarn encore dev_ da un error: 
+    <pre>
+        ERROR  Failed to compile with 1 errors                   5:38:44 PM
+
+        Module build failed: Module not found:
+        "./node_modules/bootstrap/dist/js/bootstrap.esm.js" contains a reference to the file "@popperjs/core".
+        
+        This file can not be found, please check it for typos or update it if the file got moved.
+</pre>
+
+_Descripcion **Solucion**:_ De la investigacion no sugiere la instalacion de la dependencia @popperjs/core, lo que se hace [*yarn add @popperjs/core*](https://www.npmjs.com/package/@popperjs/core), y se soluciona el problema.
+##### < command "yarn encore dev" failed: exit status 1 "@popperjs/core"
