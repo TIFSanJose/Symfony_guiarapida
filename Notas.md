@@ -136,3 +136,10 @@ _Descripcion **Problema**:_ Luego de intentar levantar el entorno de desarrollo 
 
 _Descripcion **Solucion**:_ De la investigacion, surgio que el problme puede haber surgido luego de actualizar la pc y no reiniciar. Se reinicia y levanto el entorno correctamente. 
 ##### < Error al levantar el entorno 
+
+##### > Borrado de var/cache/dev
+_Descripcion **Problema**: En paso21 se purgo la el directorio cache, eliminado al directorio dev.
+Esto trajo un error al renderizar los archivos *.html.twig, en particualar la funcion path.
+
+__Descripcion **Solucion**:_ Se elimino el directorio */cache* haciendo que al levantar el servidor se creara un nuevo directorio /cache/dev y asi solucionando el problema
+##### < Borrado de var/cache/dev 

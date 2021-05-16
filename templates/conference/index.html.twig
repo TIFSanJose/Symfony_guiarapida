@@ -11,11 +11,6 @@
 <div class="example-wrapper">
     {# <h1>Hello {{ controller_name }}! ✅</h1> #}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/var/www/src/Controller/ConferenceController.php'|file_link(0) }}">src/Controller/ConferenceController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/var/www/templates/conference/index.html.twig'|file_link(0) }}">templates/conference/index.html.twig</a></code></li>
-    </ul>
 </div>
 
     {% for conference in conferences %}
@@ -24,7 +19,7 @@
             {# <a href="/conference/{{ conference.id }}">View</a> #}
             {# La función path() genera la ruta a una página utilizando su nombre de ruta.  #}
         {# <a href="{{ path('conference', { id: conference.id }) }}">View</a> #}
-            {# <a href="{{ path('conference', { slug: conference.slug }) }}">View</a> #}
+            <a href="{{ path('conference', { slug: conference.slug }) }}">{{ conference }}</a>
         </p>
     {% endfor %}
 {% endblock %}
