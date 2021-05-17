@@ -52,7 +52,7 @@ class CommentCrudController extends AbstractCrudController
 
         // yield TextField::new('photoFilename')
         yield ImageField::new('photoFilename')
-            ->setBasePath('/uploads/photos')
+            ->setBasePath('/public/uploads/photos')
             ->setLabel('Photo')
 
             ->onlyOnIndex()
@@ -68,7 +68,6 @@ class CommentCrudController extends AbstractCrudController
         
         if (Crud::PAGE_EDIT === $pageName) {
             yield $createdAt->setFormTypeOption('disabled', true);
-            dump(new DateTime());
         } else {
             yield $createdAt;
         }
