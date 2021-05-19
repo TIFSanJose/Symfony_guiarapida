@@ -10,9 +10,11 @@ use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Workflow\WorkflowInterface;
-use Symfony\Bridge\Twig\Mime\NotificationEmail;
-use Symfony\Component\Mailer\MailerInterface;
+// use Symfony\Bridge\Twig\Mime\NotificationEmail;
+// use Symfony\Component\Mailer\MailerInterface;
 use App\ImageOptimizer;
+use App\Notification\CommentReviewNotification;
+use Symfony\Component\Notifier\NotifierInterface;
 
 
 
@@ -28,11 +30,13 @@ class CommentMessageHandler implements MessageHandlerInterface
     private $adminEmail;
     private $imageOptimizer;
     private $photoDir;
+    private $notifier;
 
     // public function __construct(EntityManagerInterface $entityManager, SpamChecker $spamChecker, CommentRepository $commentRepository)
     // public function __construct(EntityManagerInterface $entityManager, SpamChecker $spamChecker, CommentRepository $commentRepository, MessageBusInterface $bus, WorkflowInterface $commentStateMachine, LoggerInterface $logger = null)
     // public function __construct(EntityManagerInterface $entityManager, SpamChecker $spamChecker, CommentRepository $commentRepository, MessageBusInterface $bus, WorkflowInterface $commentStateMachine, MailerInterface $mailer, string $adminEmail, LoggerInterface $logger = null)
-    public function __construct(EntityManagerInterface $entityManager, SpamChecker $spamChecker, CommentRepository $commentRepository, MessageBusInterface $bus, WorkflowInterface $commentStateMachine, MailerInterface $mailer, ImageOptimizer $imageOptimizer, string $adminEmail, string $photoDir, LoggerInterface $logger = null)
+    // public function __construct(EntityManagerInterface $entityManager, SpamChecker $spamChecker, CommentRepository $commentRepository, MessageBusInterface $bus, WorkflowInterface $commentStateMachine, MailerInterface $mailer, ImageOptimizer $imageOptimizer, string $adminEmail, string $photoDir, LoggerInterface $logger = null)
+    public function __construct(EntityManagerInterface $entityManager, SpamChecker $spamChecker, CommentRepository $commentRepository, MessageBusInterface $bus, WorkflowInterface $commentStateMachine, NotifierInterface $notifier, ImageOptimizer $imageOptimizer, string $photoDir, LoggerInterface $logger = null)
     {
         $this->entityManager = $entityManager;
         $this->spamChecker = $spamChecker;
@@ -40,10 +44,11 @@ class CommentMessageHandler implements MessageHandlerInterface
         $this->bus = $bus;
         $this->workflow = $commentStateMachine;
         $this->logger = $logger;
-        $this->mailer = $mailer;
-        $this->adminEmail = $adminEmail;
+        // $this->mailer = $mailer;
+        // $this->adminEmail = $adminEmail;
         $this->imageOptimizer = $imageOptimizer;
         $this->photoDir = $photoDir;
+        $this->notifier = $notifier;
     }
 
     public function __invoke(CommentMessage $message)
@@ -77,13 +82,16 @@ class CommentMessageHandler implements MessageHandlerInterface
             // $this->workflow->apply($comment, $this->workflow->can($comment, 'publish') ? 'publish' : 'publish_ham');
             // $this->entityManager->flush();
 
-            $this->mailer->send((new NotificationEmail())
-                ->subject('New comment posted')
-                ->htmlTemplate('emails/comment_notification.html.twig')
-                ->from($this->adminEmail)
-                ->to($this->adminEmail)
-                ->context(['comment' => $comment])
-            );
+            // $this->mailer->send((new NotificationEmail())
+            //     ->subject('New comment posted')
+            //     ->htmlTemplate('emails/comment_notification.html.twig')
+            //     ->from($this->adminEmail)
+            //     ->to($this->adminEmail)
+            //     ->context(['comment' => $comment])
+            // );
+
+            $this->notifier->send(new CommentReviewNotification($comment), ...$this->notifier->getAdminRecipients());
+
         } elseif ($this->workflow->can($comment, 'optimize')) {
             if ($comment->getPhotoFilename()) {
                 $this->imageOptimizer->resize($this->photoDir.'/'.$comment->getPhotoFilename());
