@@ -121,3 +121,8 @@ symfony composer req cache
 #Instalar yarn por separado al servidor "apk add yarn"
 symfony composer req encore
 
+#Instalando API Platform
+symfony composer req api
+
+#habilitar el soporte de GraphQL
+composer require webonyx/graphql-php
