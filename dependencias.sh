@@ -125,4 +125,5 @@ symfony composer req encore
 symfony composer req api
 
 #habilitar el soporte de GraphQL
-composer require webonyx/graphql-php
+symfony composer req webonyx/graphql-php
+
