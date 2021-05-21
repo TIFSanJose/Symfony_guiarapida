@@ -1,7 +1,7 @@
 {
   "name": "spa",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.ejs",
   "license": "MIT",
   "dependencies": {
     "@babel/core": "^7.14.3",
@@ -10,7 +10,9 @@
     "babel-preset-preact": "^2.0.0",
     "bootstrap": "^5.0.1",
     "html-webpack-plugin": "^5.3.1",
+    "node-sass": "^6.0.0",
     "preact": "^10.5.13",
-    "preact-router": "^3.2.1"
+    "preact-router": "^3.2.1",
+    "sass-loader": "^11.1.1"
   }
 }

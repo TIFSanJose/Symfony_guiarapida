@@ -9,6 +9,7 @@ Encore
     .enablePreactPreset()
     .enableSingleRuntimeChunk()
     .addPlugin(new HtmlWebpackPlugin({ template: 'src/index.ejs', alwaysWriteToDisk: true }))
+    .enableSassLoader()
 ;
 
 module.exports = Encore.getWebpackConfig();
