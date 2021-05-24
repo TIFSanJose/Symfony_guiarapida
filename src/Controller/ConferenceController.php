@@ -37,15 +37,24 @@ class ConferenceController extends AbstractController
         $this->entityManager = $entityManager;
         $this->bus = $bus;
     }
+
+    #[Route('/')]
+    public function indexNoLocale(): Response
+    {
+        return $this->redirectToRoute('homepage', ['_locale' => 'en']);
+    }    
     
     // /**
     //  * @Route("/hello/{name}", name="homepage")
     //  */
 
-    /**
-     * @Route("/", name="homepage")
-     */
+    // /**
+    //  * @Route("/", name="homepage")
+    //  */
 
+    // #[Route('/{_locale}/', name: 'homepage')]
+    // #[Route('/{_locale<en|fr>}/', name: 'homepage')]
+    #[Route('/{_locale<%app.supported_locales%>}/', name: 'homepage')]
     // public function index(): Response
     // public function index(Request $request): Response
     // public function index(string $name = ''): Response
@@ -85,6 +94,7 @@ class ConferenceController extends AbstractController
      */
 
     // #[Route('/conference_header', name: 'conference_header')]
+    #[Route('/{_locale<%app.supported_locales%>}/conference_header', name: 'conference_header')]
     public function conferenceHeader(ConferenceRepository $conferenceRepository): Response
     {
         // return new Response($this->twig->render('conference/header.html.twig', [
@@ -98,7 +108,8 @@ class ConferenceController extends AbstractController
 
 
     // #[Route('/conference/{id}', name: 'conference')]
-    #[Route('/conference/{slug}', name: 'conference')]
+    // #[Route('/conference/{slug}', name: 'conference')]
+    #[Route('/{_locale<%app.supported_locales%>}/conference/{slug}', name: 'conference')]
     // public function show(Environment $twig, Conference $conference, CommentRepository $commentRepository): Response
     // public function show(Request $request, Environment $twig, Conference $conference, CommentRepository $commentRepository): Response
     // public function show(Request $request, Conference $conference, CommentRepository $commentRepository): Response

@@ -127,3 +127,10 @@ symfony composer req api
 #habilitar el soporte de GraphQL
 symfony composer req webonyx/graphql-php
 
+#Para poner las mayúsculas y minúsculas correctamente en los textos 
+#necesitamos un filtro que sea compatible con Unicode
+symfony composer req twig/string-extra
+
+#componente Translation de Symfony:
+symfony composer req translation
+
