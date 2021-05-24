@@ -157,3 +157,8 @@ _Descripcion **Problema**:_ Al ejecutar el compilador de css _symfony run yarn e
 
 _Descripcion **Solucion**:_ De la investigacion no sugiere la instalacion de la dependencia @popperjs/core, lo que se hace [*yarn add @popperjs/core*](https://www.npmjs.com/package/@popperjs/core), y se soluciona el problema.
 ##### < command "yarn encore dev" failed: exit status 1 "@popperjs/core"
+
+##### > fetch() en webServer, api SPA
+_Descripcion **Problema**:_ En paso 27.6 se hace despliegue de servidor web webpack para pagina SPA. La app no hacia la peticion web a la apiWeb. Por otro lado al compilar los archivos con webpack _$ API_ENDPOINT=`symfony var:export SYMFONY_PROJECT_DEFAULT_ROUTE_URL --dir=..` yarn encore dev_ me lanzaba un error que no encontraba la variable de entorno SYMFONY. 
+_Descripcion **Solucion**:_ *1. Variable de Entorno:* Se setea la vaiable de entorno en docker-compose. *2. Fetch():* La url debe completa _http://localhost:8100/_
+##### < fetch() en webServer, api SPA 

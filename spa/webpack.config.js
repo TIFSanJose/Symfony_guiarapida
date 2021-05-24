@@ -13,7 +13,7 @@ Encore
     .addPlugin(new HtmlWebpackPlugin({ template: 'src/index.ejs', alwaysWriteToDisk: true }))
     .enableSassLoader()
     .addPlugin(new webpack.DefinePlugin({
-        'ENV_API_ENDPOINT': JSON.stringify(proccess.env.API_ENDPOINT),
+        'ENV_API_ENDPOINT': JSON.stringify(process.env.API_ENDPOINT)
     }))
 ;
 
