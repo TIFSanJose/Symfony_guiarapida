@@ -10,6 +10,9 @@ runtime:
         - ctype
         - iconv
         - xsl
+        - redis
+        # - blackfire
+        # - pdo_pgsql
 
 #variables:
 #    php:

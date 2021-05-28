@@ -162,3 +162,23 @@ _Descripcion **Solucion**:_ De la investigacion no sugiere la instalacion de la 
 _Descripcion **Problema**:_ En paso 27.6 se hace despliegue de servidor web webpack para pagina SPA. La app no hacia la peticion web a la apiWeb. Por otro lado al compilar los archivos con webpack _$ API_ENDPOINT=`symfony var:export SYMFONY_PROJECT_DEFAULT_ROUTE_URL --dir=..` yarn encore dev_ me lanzaba un error que no encontraba la variable de entorno SYMFONY. 
 _Descripcion **Solucion**:_ *1. Variable de Entorno:* Se setea la vaiable de entorno en docker-compose. *2. Fetch():* La url debe completa _http://localhost:8100/_
 ##### < fetch() en webServer, api SPA 
+
+#### > Redis conection ###
+**Video de Apoyo**
+    1. [_Redis_](https://www.youtube.com/watch?v=g-VBbGtG6nQ)
+
+_Descripcion **Problema**:_ 
+    1. En paso 31, se configura redis como cache de sesiones. Al actualizar la app no renderiza y lanza un error relacionado con la variable de entorno REDIS_URL.
+    2. Solucionado _punto 1_, el proyecto no levanta, solicitando el paquete **predis/predis**
+
+_Descripcion **Solucion**:_ 
+    1. Al igual que el problema con DB_URL se setea la variable de entorno en el archivo __*.env*__ del _proyecto symfony_ debiendo quedar la url conformada completamente: 
+        <pre>
+            redis://ip_servidor_redis:puerto
+            REDIS_URL=redis://ip_servidor_redis:puerto
+        </pre>
+    2. De lo investigado surge que una dependencia que se instala con composer:
+        <pre>
+            symfony composer req predis/predis
+        </pre>
+#### < Redis conection ###
